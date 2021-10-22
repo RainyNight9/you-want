@@ -9,7 +9,7 @@
 
 ## 快速上手
 
-### 首先,安装组件库
+### 首先，安装组件库
 
 ```bash
 npm install you-want
@@ -19,7 +19,7 @@ yarn add you-want
 pnpm install you-want
 ```
 
-### 接着,在项目入口文件main.js注册组件
+### 接着，在项目入口文件 main.js 注册组件
 
 ```js
 import YouWant from 'you-want'
