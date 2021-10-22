@@ -283,7 +283,7 @@ export default {
 
 ### 效果图
 
-![formList](https://git.100tal.com/jituan_bigdata_fe/dfe-you-want/blob/master/public/formList.jpg)
+![formList](https://github.com/RainyNight9/you-want/tree/main/public/formList.jpg)
 
 ## bug修复
 

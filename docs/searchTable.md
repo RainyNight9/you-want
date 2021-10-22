@@ -315,4 +315,4 @@ export default {
 
 ### 效果图
 
-![formList](https://git.100tal.com/jituan_bigdata_fe/dfe-you-want/blob/master/public/searchTable.jpg)
+![searchTable](https://github.com/RainyNight9/you-want/tree/main/public/searchTable.jpg)

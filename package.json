@@ -2,7 +2,7 @@
   "name": "you-want",
   "version": "1.0.0",
   "private": false,
-  "homepage": "",
+  "homepage": "https://github.com/RainyNight9/you-want",
   "main": "packages/index.js",
   "description": "you-want",
   "keyword": "you-want",
