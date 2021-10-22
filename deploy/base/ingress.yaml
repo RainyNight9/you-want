@@ -1,0 +1,49 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ${_APP_NAME}-app
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+    kubernetes.io/tls-acme: 'true'
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+spec:
+  tls:
+    - hosts:
+      - ${_DOMAIN_NAME}
+      secretName: dp-udc-https
+  rules:
+    - host: ${_DOMAIN_NAME}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: ${_APP_NAME}-svc
+              servicePort: 80
+          - path: /datasearch
+            backend:
+              serviceName: dp-tquery-datasearch-serve-svc
+              servicePort: 8100
+          - path: /interaction
+            backend:
+              serviceName: dp-tquery-interaction-serve-svc
+              servicePort: 8100
+          - path: /alarm
+            backend:
+              serviceName: dp-tquery-interaction-serve-svc
+              servicePort: 8100
+          - path: /console
+            backend:
+              serviceName: dp-tquery-console-serve-svc
+              servicePort: 8100
+          - path: /manageCenter
+            backend:
+              serviceName: dp-managecenter-be-api-svc
+              servicePort: 8080
+          - path: /sql
+            backend:
+              serviceName: dp-tquery-sqlscan-serve-svc
+              servicePort: 8100
+...

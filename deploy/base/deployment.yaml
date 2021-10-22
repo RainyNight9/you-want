@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${_APP_NAME}-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${_APP_NAME}
+  template:
+    metadata:
+      labels:
+        app: ${_APP_NAME}
+    spec:
+      imagePullSecrets:
+      - name: private-docker-registry-01
+      containers:
+      - name: ${_APP_NAME}-container
+        image: ${_REGISTRY_HOST}/${_DOCKER_IMAGE}:${_GIT_TAG}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        envFrom:
+          - configMapRef:
+              name: ${_APP_NAME}-cfg
+          - configMapRef:
+              name: ${_APP_NAME}-env-cfg
+        resources:
+...

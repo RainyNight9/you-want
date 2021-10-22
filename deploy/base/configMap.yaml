@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ${_APP_NAME}-cfg
+data:
+  # APP_HEADER_JS: http://ucenter-${_NAMESPACE_SUFFIX}.${_APP_DOMAIN_SUFFIX}.talbrain.com/cas/home/tal_dp_lib.js?subTitle= -- T-Data平台化构建项目&menu=0
+...
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ${_APP_NAME}-env-cfg
+data:
+  APP_CLOUD_ENV: local
+  APP_CI_ENV: dev
+...

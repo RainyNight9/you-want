@@ -1,0 +1,117 @@
+.admin-header{
+  padding: 0;
+  z-index: 2;
+  box-shadow: @shadow-down;
+  position: relative;
+  background: @base-bg-color;
+  .head-menu{
+    height: 64px;
+    line-height: 64px;
+    vertical-align: middle;
+    box-shadow: none;
+  }
+  &.dark{
+    background: @header-bg-color-dark;
+    color: white;
+  }
+  &.night{
+    .head-menu{
+      background: @base-bg-color;
+    }
+  }
+  .admin-header-wide{
+    padding-left: 24px;
+    &.head.fixed{
+      max-width: 1400px;
+      margin: auto;
+      padding-left: 0;
+    }
+    &.side{
+      padding-right: 12px;
+    }
+    .logo {
+      height: 64px;
+      line-height: 58px;
+      vertical-align: top;
+      display: inline-block;
+      padding: 0 12px 0 24px;
+      cursor: pointer;
+      font-size: 20px;
+      color: inherit;
+      &.pc{
+        padding: 0 12px 0 0;
+      }
+      img {
+        vertical-align: middle;
+      }
+      h1{
+        color: inherit;
+        display: inline-block;
+        font-size: 16px;
+      }
+    }
+    .systemName{
+      font-size: 16px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #FFFFFF;
+      padding: 0 12px;
+    }
+    .trigger {
+      font-size: 20px;
+      line-height: 64px;
+      padding: 0 24px;
+      cursor: pointer;
+      transition: color .3s;
+      &:hover{
+        color: @primary-color;
+      }
+    }
+    .admin-header-menu{
+      display: inline-block;
+    }
+    .admin-header-right{
+      float: right;
+      display: flex;
+      color: rgba(254, 254, 254, 0.65);
+      .header-item{
+        height: 100%;
+        color: rgba(254, 254, 254, 0.65);
+        padding: 0 12px;
+        cursor: pointer;
+        align-self: center;
+        a{
+          color: inherit;
+          i{
+            font-size: 16px;
+          }
+        }
+      }
+      each(@theme-list, {
+        &.@{value} .header-item{
+          &:hover{
+            @class: ~'hover-bg-color-@{value}';
+            background-color: @@class;
+          }
+        }
+      })
+      .imgBox {
+        height: 100%;
+        cursor: pointer;
+        margin: 0 12px;
+        .imgIcon {
+          width: 24px;
+          height: 24px;
+          align-self: center;
+        }
+      }
+    }
+    .divider {
+      align-self: center;
+      background: rgb(241, 245, 253);
+      opacity: 0.2;
+      width: 1px;
+      height: 24px;
+    }
+  }
+}
